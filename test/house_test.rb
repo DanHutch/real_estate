@@ -97,11 +97,22 @@ class HouseTest < Minitest::Test
     room_2 = Room.new(:bedroom, 11, 15)
     room_3 = Room.new(:living_room, 25, 15)
     room_4 = Room.new(:basement, 30, 41)
+    room_5 = Room.new(:bathroom, 15, 15)
+    room_6 = Room.new(:bathroom, 20, 15)
     house.add_room(room_1)
     house.add_room(room_2)
     house.add_room(room_3)
     house.add_room(room_4)
-
+    house.add_room(room_5)
+    house.add_room(room_6)
+    actual = house.rooms_by_category.first.count
+    assert_equal(2, actual)
+    actual = house.rooms_by_category.class
+    assert_equal(Hash, actual)
+    actual = house.rooms_by_category[:bathroom].class
+    assert_equal(Array, actual)
+    actual = house.rooms_by_category[:bathroom].count
+    assert_equal(2, actual)
   end
 
 end
