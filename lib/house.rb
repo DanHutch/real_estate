@@ -20,8 +20,9 @@ class House
   end
 
   def area
-    
-
+    @rooms.map do |room|
+      room.area
+    end.sum
   end
 
 end
