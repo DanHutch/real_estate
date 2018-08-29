@@ -25,4 +25,16 @@ class House
     end.sum
   end
 
+  def price_per_square_foot
+
+  end
+
+  # def rooms_sorted_by_area
+  #
+  # end
+  #
+  # def rooms_by_category
+  #
+  # end
+
 end
