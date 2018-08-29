@@ -29,12 +29,15 @@ class House
     (@price.to_f / area).round(2)
   end
 
-  # def rooms_sorted_by_area
-  #
-  # end
-  #
-  # def rooms_by_category
-  #
-  # end
+  def rooms_sorted_by_area
+    @rooms.sort_by do |room|
+      room.area
+    end
+  end
+
+  def rooms_by_category
+    @rooms.group_by do |room|
+      room.category
+  end
 
 end
