@@ -14,4 +14,14 @@ class House
   def add_room(room)
     @rooms << room
   end
+
+  def rooms_from_category(type)
+    @rooms.find_all { |x| x.category == type}
+  end
+
+  def area
+    
+
+  end
+
 end

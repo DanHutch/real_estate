@@ -25,11 +25,27 @@ class HouseTest < Minitest::Test
     room_1 = Room.new(:bedroom, 10, 13)
     house.add_room(room_1)
     assert_equal(1, house.rooms.count)
-    actual =
     room_2 = Room.new(:bedroom, 11, 15)
     house.add_room(room_1)
     assert_equal(2, house.rooms.count)
-    a
+  end
+
+  def test_it_can_find_rooms_by_category
+    house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, 13)
+    room_2 = Room.new(:bedroom, 11, 15)
+    room_3 = Room.new(:living_room, 25, 15)
+    room_4 = Room.new(:basement, 30, 41)
+    house.add_room(room_1)
+    house.add_room(room_2)
+    house.add_room(room_3)
+    house.add_room(room_4)
+    expected = 2
+    actual = house.rooms_from_category(:bedroom).count
+    assert_equal(expected, actual)
+    expected = 1
+    actual = house.rooms_from_category(:basement).count
+    assert_equal(expected, actual)
   end
 
 end
