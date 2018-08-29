@@ -6,9 +6,12 @@ class House
               :rooms
 
   def initialize(price, address)
-    @price = price
+    @price = price.sub("$", "").to_i
     @address = address
     @rooms = []
   end
 
+  def add_room(room)
+    @rooms << room
+  end
 end
